@@ -326,11 +326,7 @@
                 <div class="content has-text-justified">
                   <p>
                     
-We propose ESCAPE, a generative reactive motion policy based on Flow Matching that produces stable, collision-free trajectories from distributed and sparse egocentric sensory data. 
-
-From a manifold learning perspective, the Flow Matching framework learns a perception-conditioned continuous vector field that smoothly transports a simple prior distribution onto a safe obstacle-avoidance manifold derived from expert demonstrations. Unlike traditional Behavior Cloning, which often exhibits geometric rigidity in narrow spaces, our approach enables trajectories to adaptively bend'' under complex geometric constraints. Near obstacles, the vector field provides physics-aware corrective gradients, guiding the trajectory to conform to the manifold's edge. This mechanism ensures high-precision avoidance and closed-loop stability in extremely cluttered environments without any post-processing.
-
-To support model training, we combine a boundary-aware endpoint sampling strategy with the cuRobo planner to construct a dataset of over 100K continuous collision-free trajectories, implicitly characterizing the hard boundaries of the manifold. To address the extreme sparsity of distributed ToF data, we introduce a temporal aggregation mechanism and a collision-aware point cloud representation to extract critical egocentric features. The model learns the manifold end-to-end via the joint optimization of multiple loss functions, followed by offline fine-tuning to further enhance closed-loop robustness.
+                    ESCAPE is an online flow-matching policy for safe motion generation in cluttered environments. First, distributed body-mounted depth measurements are temporally aggregated into a structured, collision-aware point cloud. Then, a DiT-X Transformer takes this egocentric representation, the joint goal, and the current joint position as inputs to generate action chunks. The framework is trained via multi-loss joint optimization to output safe trajectories.
                 </div>
               </div>
             </div>
